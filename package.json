@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-vetclinic-desafio",
+  "version": "1.0.0",
+  "description": "Desafio node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doni-zete/nodeJs-vetclinic-desafio.git"
+  },
+  "author": "Donizete",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Doni-zete/nodeJs-vetclinic-desafio/issues"
+  },
+  "homepage": "https://github.com/Doni-zete/nodeJs-vetclinic-desafio#readme",
+  "keywords": [],
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
