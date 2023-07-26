@@ -4,10 +4,10 @@ import { Router } from "express";
 const router = Router();
 
 
-router.post("/");
 router.get("/tutors", tutorController.findAllTutorsController);
+router.post("/tutor", tutorController.createTutorController);
 
-router.put("/:id");
-router.delete("/:id");
+router.put("/tutor/:id");
+router.delete("/tutor/:id");
 
 export default router;
