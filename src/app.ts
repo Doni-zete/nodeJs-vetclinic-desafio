@@ -1,21 +1,17 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import connectToDatabase from "./database/database";
-import Tutor from "./models/tutor.model";
+import tutor from "./routes/tutor.router";
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+app.use(express.json());
 
 const port = 3000;
 
 const dbURL = process.env.URLDATABASE;
 
-
-app.get("/tutors", async (req: Request, res: Response) => {
-  const tutors = await Tutor.find();
-  res.json(tutors);
-});
-
+app.use("/tutor", tutor);
 
 if (!dbURL) {
   console.log("URLDATABASE não definida no arquivo .env");
