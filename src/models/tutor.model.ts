@@ -8,6 +8,6 @@ const TutorSchema = new Schema({
   zip_code: {type: String, required: true}
 });
 
-const Tutor = model("Tutor", TutorSchema);
+const Tutor = model("Tutors", TutorSchema);
 
 export default Tutor;
