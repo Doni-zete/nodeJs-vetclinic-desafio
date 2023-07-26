@@ -8,7 +8,12 @@ const createTutorService = (body: String) => {
   return Tutor.create(body);
 };
 
+const updateTutorService = (id: String, body: String) => {
+  return Tutor.findByIdAndUpdate(id, body, { returnDocument: "after" });
+};
+
 export default {
   findAllTutorsService,
-  createTutorService
+  createTutorService,
+  updateTutorService,
 };
