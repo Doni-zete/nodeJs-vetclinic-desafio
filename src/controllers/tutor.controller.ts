@@ -5,8 +5,7 @@ const findAllTutorsController = async (req: Request, res: Response) => {
   try {
     res.send(await tutorService.findAllTutorsService());
   } catch (error) {
-    res.status(500).send({ message: String });
-    console.log(`Erro inesperado, tente novamente ${error}`);
+    res.status(500).send(`Erro inesperado, tente novamente ${error}`);
   }
 };
 
@@ -17,12 +16,20 @@ const createTutorController = async (req: Request, res: Response) => {
     };
     res.send(await tutorService.createTutorService(corpo));
   } catch (error) {
-    res.status(500).send({ message: String });
-    console.log(`Erro inesperado, tente novamente ${error}`);
+    res.status(500).send(`Erro inesperado, tente novamente ${error}`);
+  }
+};
+
+const updateTutorController = async (req: Request, res: Response) => {
+  try {
+    res.send(await tutorService.updateTutorService(req.params.id, req.body));
+  } catch (error) {
+    res.status(500).send(`Erro inesperado, tente novamente ${error}`);
   }
 };
 
 export default {
   findAllTutorsController,
   createTutorController,
+  updateTutorController,
 };
