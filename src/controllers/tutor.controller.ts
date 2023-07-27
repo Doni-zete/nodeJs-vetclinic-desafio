@@ -28,8 +28,17 @@ const updateTutorController = async (req: Request, res: Response) => {
   }
 };
 
+const deleteTutorController = async (req: Request, res: Response) => {
+  try {
+    res.send(await tutorService.deleteTutorService(req.params.id));
+  } catch (error) {
+    res.status(500).send(`Erro inesperado, tente novamente ${error}`);
+  }
+};
+
 export default {
   findAllTutorsController,
   createTutorController,
   updateTutorController,
+  deleteTutorController,
 };
