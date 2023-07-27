@@ -36,9 +36,22 @@ const deleteTutorController = async (req: Request, res: Response) => {
   }
 };
 
+const createPetTutorController = async (req: Request, res: Response) => {
+  try {
+    res
+      .status(201)
+      .send(await tutorService.createPetTutorService(req.params.id, req.body));
+  } catch (error) {
+    res
+      .status(500)
+      .send({ message: "Erro inesperado, tente novamente mais tarde" });
+  }
+};
+
 export default {
   findAllTutorsController,
   createTutorController,
   updateTutorController,
   deleteTutorController,
+  createPetTutorController,
 };
