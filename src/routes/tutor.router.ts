@@ -4,10 +4,12 @@ import { Router } from "express";
 const router = Router();
 
 
-router.get("/tutors", tutorController.findAllTutorsController);
-router.post("/tutor", tutorController.createTutorController);
+router.get("/findAll", tutorController.findAllTutorsController);
 
-router.put("/tutor/:id");
-router.delete("/tutor/:id");
+router.post("/create", tutorController.createTutorController);
+
+router.put("/update/:id", tutorController.updateTutorController);
+
+router.delete("/remove/:id", tutorController.deleteTutorController);
 
 export default router;
