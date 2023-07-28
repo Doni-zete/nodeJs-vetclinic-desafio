@@ -1,6 +1,23 @@
 import { Schema, model } from "mongoose";
 
-const TutorSchema = new Schema({
+interface Tutor {
+  name: String;
+  phone: String;
+  email: String;
+  date_of_birth: String;
+  zip_code: String;
+  pets: Pet[];
+}
+
+interface Pet {
+  name: String;
+  species: String;
+  carry: String;
+  weight: Number;
+  date_of_birth: String;
+}
+
+const TutorSchema = new Schema<Tutor>({
   name: { type: String, required: true },
   phone: { type: String, require: true },
   email: { type: String, required: true },
@@ -17,6 +34,6 @@ const TutorSchema = new Schema({
   ],
 });
 
-const Tutor = model("Tutors", TutorSchema);
+const Tutor = model<Tutor>("TutorsPet", TutorSchema);
 
 export default Tutor;
