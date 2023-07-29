@@ -40,7 +40,9 @@ const createPetTutorController = async (req: Request, res: Response) => {
   try {
     res
       .status(201)
-      .send(await tutorService.createPetTutorService(req.params.id, req.body));
+      .send(
+        await tutorService.createPetTutorService(req.params.tutorId, req.body)
+      );
   } catch (error) {
     res
       .status(500)
@@ -48,10 +50,27 @@ const createPetTutorController = async (req: Request, res: Response) => {
   }
 };
 
+const updatePetTutorController = async (req: Request, res: Response) => {
+  try {
+    const tutorId = req.params.tutorId;
+    const petId = req.params.petId;
+    
+    const updatedPetData = req.body; 
+    const updatedTutor = await tutorService.updatePetTutorService(tutorId, petId, updatedPetData);
+
+    res.status(200).json(updatedTutor);
+  } catch (error) {
+    console.error("Erro ao atualizar o tutor:", error);
+    res.status(500).send({ message: "Erro inesperado, tente novamente mais tarde" });
+  }
+};
+
+
 export default {
   findAllTutorsController,
   createTutorController,
   updateTutorController,
   deleteTutorController,
   createPetTutorController,
+  updatePetTutorController,
 };
