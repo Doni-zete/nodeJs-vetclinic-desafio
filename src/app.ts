@@ -1,6 +1,6 @@
 import express from "express";
 import connectToDatabase from "./database/database";
-import tutor from "./routes/tutor.router";
+import tutorRouter from "./routes/tutor.router";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -11,7 +11,7 @@ const port = 3000;
 
 const dbURL = process.env.URLDATABASE;
 
-app.use("/tutor", tutor);
+app.use(tutorRouter);
 
 if (!dbURL) {
   console.log("URLDATABASE não definida no arquivo .env");
