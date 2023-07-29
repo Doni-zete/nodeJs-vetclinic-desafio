@@ -46,6 +46,14 @@ const updatePetTutorService = (
   );
 };
 
+const deletePetTutorService = (tutorId: String, petId: String) => {
+  return Tutor.findOneAndUpdate(
+    { _id: tutorId },
+    { $pull: { pets: { _id: petId } } },
+    { new: true }
+  );
+};
+
 export default {
   findAllTutorsService,
   createTutorService,
@@ -53,4 +61,5 @@ export default {
   deleteTutorService,
   createPetTutorService,
   updatePetTutorService,
+  deletePetTutorService,
 };
