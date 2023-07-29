@@ -4,14 +4,15 @@ import { Router } from "express";
 const router = Router();
 
 
-router.get("/findAll", tutorController.findAllTutorsController);
+router.get("/tutors", tutorController.findAllTutorsController);
+router.post("/tutor", tutorController.createTutorController);
+router.put("/tutor/:id", tutorController.updateTutorController);
+router.delete("/tutor/:id", tutorController.deleteTutorController);
 
-router.post("/create", tutorController.createTutorController);
-router.post("/createPet/:id",tutorController.createPetTutorController)
+router.post('/pet/:tutorId', tutorController.createPetTutorController);
+router.put('/pet/:petId/tutor/:tutorId', tutorController.updatePetTutorController);
+router.delete('/pet/:petId/tutor/:tutorId', tutorController.deletePetTutorController);
 
-router.put("/update/:id", tutorController.updateTutorController);
-
-router.delete("/remove/:id", tutorController.deleteTutorController);
 
 
 
