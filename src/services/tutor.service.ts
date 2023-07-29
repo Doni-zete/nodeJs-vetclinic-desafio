@@ -16,10 +16,10 @@ const deleteTutorService = (id: String) => {
   return Tutor.findByIdAndRemove(id);
 };
 
-const createPetTutorService = (id: String, pet: String) => {
+const createPetTutorService = (tutorId: String, pet: String) => {
   return Tutor.findOneAndUpdate(
     {
-      _id: id,
+      _id: tutorId,
     },
     {
       $push: {
@@ -27,8 +27,22 @@ const createPetTutorService = (id: String, pet: String) => {
       },
     },
     {
-      includeResultMetadata: true,
+      new: true,
     }
+  );
+};
+
+const updatePetTutorService = (
+  tutorId: String,
+  petId: String,
+  updatedPetData: String
+) => {
+  const { ...updatedPetDataWithoutId } = updatedPetData;
+
+  return Tutor.findOneAndUpdate(
+    { _id: tutorId, "pets._id": petId },
+    { $set: { [`pets.$`]: { _id: petId, ...updatedPetDataWithoutId } } },
+    { new: true }
   );
 };
 
@@ -38,4 +52,5 @@ export default {
   updateTutorService,
   deleteTutorService,
   createPetTutorService,
+  updatePetTutorService,
 };
