@@ -4,6 +4,19 @@ Project developed in the compass challenge
 
 ![NodeJS](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png)
 
+
+
+
+## Tools used
+
+1. Vs Code: https://code.visualstudio.com/download
+2. MongoDb Compass: https://www.mongodb.com/try/download/atlas-kubernetes-operator
+3. Docker: https://www.docker.com/products/docker-desktop/
+4. Postman:https://www.postman.com/downloads/
+5. docker-compose: https://dontpad.com/mongo-docker
+6. Copy the dontpad file and save it as "docker-compose.yml" 
+7. Open a terminal where the docker-compose.yml file is located
+8. Run the command to upload mongodb: docker-compose up -d
 ## Installation
 
 1. Download all the code
@@ -15,11 +28,7 @@ Project developed in the compass challenge
 7. Run using: npm start
 8. Open the postman application and import the postman folder
 
-## Tools used
 
-1. Vs Code: https://code.visualstudio.com/download
-2. MongoDb Compass: https://www.mongodb.com/try/download/atlas-kubernetes-operator
-3. Postman:https://www.postman.com/downloads/
 
 ## Endpoints
 
