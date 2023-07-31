@@ -34,9 +34,9 @@ export const deleteTutorController = async (req: Request, res: Response) => {
     const delletedTutor = await tutorService.deleteTutorService(req.params.id);
 
     if (delletedTutor == null) {
-      res.status(404).send(`Tutor não encontrado, tente novamente!`);
+      res.status(404).send({messge: `Tutor não encontrado, tente novamente!`});
     } else {
-      res.status(200).send(`Sucesso, tutor deletado!`);
+      res.status(200).send({message:`Sucesso, tutor deletado!`});
     }
   } catch (error) {
     res.status(500).send(`Erro inesperado, tente novamente ${error}`);
