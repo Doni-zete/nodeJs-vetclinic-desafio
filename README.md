@@ -42,6 +42,7 @@ All application endpoints
 | Code | Reponse                             |
 | ------ | ------------------------------------- |
 | 201  | Create a new tutor                  |
+| 400  | Returns a message reporting an error|
 | 500  | Returns enexpected error, try again |
 
 CreateTutorController controller code snippet
@@ -75,6 +76,7 @@ export const createTutorController = async (req: Request, res: Response) => {
 | Code | Reponse                             |
 | ------ | ------------------------------------- |
 | 200  | Returns success                     |
+| 400  | Returns a message reporting an error|
 | 500  | Returns enexpected error, try again |
 
 #### /tutor/:id
@@ -94,8 +96,10 @@ export const createTutorController = async (req: Request, res: Response) => {
 | Code | Reponse                                                                       |
 | ------ | ------------------------------------------------------------------------------- |
 | 201  | Create a new pet                                                              |
+| 400  | Returns a message reporting an error|
 | 404  | Returns a message stating that it did not find the pet for the specific tutor |
 | 500  | Returns enexpected error, try again                                           |
+
 
 ### /pet/:petId/tutor/:tutorId
 
@@ -103,6 +107,7 @@ export const createTutorController = async (req: Request, res: Response) => {
 | Code | Reponse                                                                       |
 | ------ | ------------------------------------------------------------------------------- |
 | 200  | Returns success                                                               |
+| 400  | Returns a message reporting an error|
 | 404  | Returns a message stating that it did not find the pet for the specific tutor |
 | 500  | Returns enexpected error, try again                                           |
 
