@@ -1,22 +1,22 @@
 import Tutor from "../models/tutor.model";
 
-const findAllTutorsService = () => {
+export const findAllTutorsService = () => {
   return Tutor.find();
 };
 
-const createTutorService = (body: String) => {
+export const createTutorService = (body: String) => {
   return Tutor.create(body);
 };
 
-const updateTutorService = (id: String, body: String) => {
+export const updateTutorService = (id: String, body: String) => {
   return Tutor.findByIdAndUpdate(id, body, { returnDocument: "after" });
 };
 
-const deleteTutorService = (id: String) => {
+export const deleteTutorService = (id: String) => {
   return Tutor.findByIdAndRemove(id);
 };
 
-const createPetTutorService = (tutorId: String, pet: String) => {
+export const createPetTutorService = (tutorId: String, pet: String) => {
   return Tutor.findOneAndUpdate(
     {
       _id: tutorId,
@@ -32,7 +32,7 @@ const createPetTutorService = (tutorId: String, pet: String) => {
   );
 };
 
-const updatePetTutorService = (
+export const updatePetTutorService = (
   tutorId: String,
   petId: String,
   updatedPetData: String
@@ -46,20 +46,16 @@ const updatePetTutorService = (
   );
 };
 
-const deletePetTutorService = (tutorId: String, petId: String) => {
-  return Tutor.findOneAndUpdate(
-    { _id: tutorId },
-    { $pull: { pets: { _id: petId } } },
-    { new: true }
-  );
-};
+export const deletePetTutorService = async (id: string, petId: string) => {
+  try {
+    const updatedTutor = await Tutor.findOneAndUpdate(
+      { _id: id },
+      { $pull: { pets: { _id: petId } } },
+      { new: true } 
+    );
 
-export default {
-  findAllTutorsService,
-  createTutorService,
-  updateTutorService,
-  deleteTutorService,
-  createPetTutorService,
-  updatePetTutorService,
-  deletePetTutorService,
+    return updatedTutor;
+  } catch (error) {
+    throw new Error(`Erro ao remover o pet: ${error}`);
+  }
 };
