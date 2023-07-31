@@ -58,7 +58,7 @@ export const createPetTutorController = async (req: Request, res: Response) => {
       return;
     }
 
-    res.status(200).send({ id: tutorId, ...corpo });
+    res.status(201).send({ id: tutorId, ...corpo });
     console.log(createPetTutor);
   } catch (error) {
     res
