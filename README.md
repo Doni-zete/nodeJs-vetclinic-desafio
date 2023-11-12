@@ -1,8 +1,7 @@
 # Compass nodeJs challenge with Typescrip
 
 
-Name: Donizete Crisostomo Barbosa <br>
-Email: donizete.crisosto.pb@compasso.com.br
+
 
 Project developed in the compass challenge
 
